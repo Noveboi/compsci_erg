@@ -12,8 +12,7 @@ with open('Tale of two cities (ASCII)', 'r') as f:
 chars = list(text)
 fourBits = []
 sixteenBits = []
-for i, char in enumerate(chars):
-    if i == 80: break
+for char in chars:
     binary = bin(ord(char))[2:]
     fBits = binary[0:2]
     lBits = binary[-2 : len(binary)]
@@ -39,9 +38,6 @@ def divByN(nums):
         f"div by 3: {by3/len(nums) * 100}%", 
         f"div by 5: {by5/len(nums) * 100}%", 
         f"div by 7: {by7/len(nums) * 100}%"]
-print("numbers:")
-for num in sixteenBits:
-    print(num)
-print("-----------------")
+
 for results in divByN(sixteenBits):
     print(results)
