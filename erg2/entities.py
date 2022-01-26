@@ -25,6 +25,10 @@ class Board():
             'b1': None, 'b2': None, 'b3': None,
             'c1': None, 'c2': None, 'c3': None
         }
+
+    def isFull(self):
+        if None not in self.tiles: return True
+        return False
     
     def check(self, mode): #rcd = row, column, diagonal
         vert = ['a','b','c']
@@ -36,7 +40,6 @@ class Board():
                     key = f"{row}{col}"
                     temp_row.append(self.tiles[key])
                 if temp_row == sorted(temp_row): 
-                    print("")
                     return True
             return False
         elif mode == 'column':
@@ -46,7 +49,6 @@ class Board():
                     key = f"{row}{col}"
                     temp_col.append(self.tiles[key])
                 if temp_col == sorted(temp_col): 
-                    print("col win")
                     return True
             return False
         elif mode == 'diagonal':
@@ -58,7 +60,6 @@ class Board():
                     key = f"{row}{col+1}"
                     temp_diag.append(self.tiles[key])
                 if temp_diag == sorted(temp_diag): 
-                    print("diag win")
                     return True
             return False
 
@@ -69,6 +70,7 @@ class Board():
 
     def show(self):
         i = 0
+        print("--Board--")
         for tile in self.tiles:
             if i % 3 == 0: print()
             print(f"{self.tiles[tile]} ", end='')
