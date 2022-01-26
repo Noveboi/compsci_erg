@@ -5,7 +5,7 @@
 # το μήκος της μεγαλύτερης ακολουθίας με συνεχόμενα μηδενικά και το μήκος της μεγαλύτερης ακολουθίας με 
 # συνεχόμενες μονάδες.
 
-#UserAgent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+#headers in case of ssl error: UserAgent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
 import requests
 from json import loads
 getRoundUrl = "https://drand.cloudflare.com/public/latest"
