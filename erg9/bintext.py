@@ -4,7 +4,7 @@
 from os import chdir
 chdir('.')
 
-with open('tale.txt', 'r') as f:
+with open('Tale of two cities (ASCII)', 'r') as f:
     text = f.read()
 
 chars = list(text)
