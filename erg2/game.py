@@ -79,13 +79,12 @@ def game():
     board = Board()
 
     steps = 0
-
     steps += randomlyPlaceCaps(caps, board)
     # board.show()
-
     while not board.finish():
         steps += rowMove(board)
         steps += colMove(board)
+
     print(f"Complete in {steps} steps")
     return steps
 if __name__ == "__main__":
@@ -93,4 +92,4 @@ if __name__ == "__main__":
     for i in range(1,101):
         print(f"\nGame {i}:")
         step_sum += game()
-    print(f"Average Steps: {step_sum/i}")
+    print(f"\n\nAverage steps for game over: {step_sum/i}")
