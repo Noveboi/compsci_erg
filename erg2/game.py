@@ -51,6 +51,15 @@ def move(i1,i2,i3, board):
         # board.show()
         board.tiles[i2], board.tiles[i3] = board.tiles[i3], board.tiles[i2]
         steps += 1
+    elif isLegalMove(board.tiles[i3], board.tiles[i1]) and not board.finish():
+        board.tiles[i3], board.tiles[i1] = board.tiles[i1], board.tiles[i3]
+        steps += 1
+    elif isLegalMove(board.tiles[i3], board.tiles[i2]) and not board.finish():
+        board.tiles[i3], board.tiles[i2] = board.tiles[i2], board.tiles[i3]
+        steps += 1
+    elif isLegalMove(board.tiles[i2], board.tiles[i1]) and not board.finish():
+        board.tiles[i2], board.tiles[i1] = board.tiles[i1], board.tiles[i2]
+        steps += 1
     return steps
 
 def rowMove(board):

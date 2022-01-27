@@ -30,7 +30,13 @@ class Board():
         if None not in self.tiles: return True
         return False
     
-    def check(self, mode): #rcd = row, column, diagonal
+    def endCondition(self, rcd): #rcd = row, column, diagonal
+        if rcd[0] == rcd[1] == rcd[2]: return True
+        elif rcd[0] < rcd[1] < rcd[2]: return True
+        elif rcd[2] < rcd[1] < rcd[0]: return True
+        return False
+
+    def check(self, mode): 
         vert = ['a','b','c']
         hor = ['1','2','3']
         if mode == 'row':
@@ -39,8 +45,7 @@ class Board():
                 for col in hor:
                     key = f"{row}{col}"
                     temp_row.append(self.tiles[key])
-                if temp_row == sorted(temp_row): 
-                    return True
+                if self.endCondition(temp_row): return True
             return False
         elif mode == 'column':
             for col in hor:
@@ -48,8 +53,7 @@ class Board():
                 for row in vert:
                     key = f"{row}{col}"
                     temp_col.append(self.tiles[key])
-                if temp_col == sorted(temp_col): 
-                    return True
+                if self.endCondition(temp_col): return True
             return False
         elif mode == 'diagonal':
             for i in range(2):
@@ -59,8 +63,7 @@ class Board():
                 for col, row in enumerate(vert):
                     key = f"{row}{col+1}"
                     temp_diag.append(self.tiles[key])
-                if temp_diag == sorted(temp_diag): 
-                    return True
+                if self.endCondition(temp_diag):return True 
             return False
 
     def finish(self):
