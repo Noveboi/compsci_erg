@@ -19,7 +19,7 @@ for char in chars:
         fourBits.append(''.join([fBits,lBits]))
     elif len(fourBits) == 3:
         fourBits.append(''.join([fBits, lBits]))
-        sixteenBits.append(int(''.join(map(str, fourBits)), 2))
+        sixteenBits.append(''.join(map(str, fourBits)), 2)
         fourBits.clear()
 
 def divByN(nums):
@@ -28,6 +28,7 @@ def divByN(nums):
     by5 = 0
     by7 = 0
     for num in nums:
+        num = int(num)
         if num % 2 == 0: by2 += 1
         if num % 3 == 0: by3 += 1
         if num % 5 == 0: by5 += 1
